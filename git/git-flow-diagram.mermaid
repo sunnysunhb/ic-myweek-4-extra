@@ -1,0 +1,43 @@
+gitGraph
+    commit id: "initial commit"
+    branch develop
+    checkout develop
+    commit id: "create develop branch"
+    
+    branch feature/login
+    checkout feature/login
+    commit id: "start login feature"
+    commit id: "implement login form"
+    commit id: "add validation"
+    
+    checkout develop
+    merge feature/login id: "PR: Add login feature"
+    
+    branch feature/dashboard
+    checkout feature/dashboard
+    commit id: "create dashboard UI"
+    commit id: "add data display"
+    
+    checkout develop
+    merge feature/dashboard id: "PR: Add dashboard"
+    
+    branch release/v1.0
+    checkout release/v1.0
+    commit id: "version bump"
+    commit id: "fix minor bugs"
+    
+    checkout main
+    merge release/v1.0 id: "Release v1.0" tag: "v1.0"
+    
+    checkout develop
+    merge main id: "sync develop with main"
+    
+    branch hotfix/login-error
+    checkout hotfix/login-error
+    commit id: "fix critical login bug"
+    
+    checkout main
+    merge hotfix/login-error id: "Fix: Login error" tag: "v1.0.1"
+    
+    checkout develop
+    merge hotfix/login-error id: "sync hotfix to develop"

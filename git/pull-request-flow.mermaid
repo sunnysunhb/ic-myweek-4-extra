@@ -1,0 +1,12 @@
+flowchart TD
+    A[Developer] --> B[Create Feature Branch]
+    B --> C[Make Changes & Commit]
+    C --> D[Push to Remote Repository]
+    D --> E[Create Pull Request]
+    E --> F[Code Review]
+    F --> G{Approved?}
+    G -->|No| H[Address Feedback]
+    H --> F
+    G -->|Yes| I[Merge to Target Branch]
+    I --> J[Delete Feature Branch]
+    J --> K[Pull Latest Changes]

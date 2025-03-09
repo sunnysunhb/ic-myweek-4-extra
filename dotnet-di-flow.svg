@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8f9fa" rx="10" ry="10" />
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">Dependency Injection Flow in .NET API</text>
+  
+  <!-- Application Startup Phase -->
+  <rect x="50" y="80" width="700" height="160" fill="#e3f2fd" rx="10" ry="10" stroke="#2196f3" stroke-width="2" />
+  <text x="400" y="100" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold" fill="#0d47a1">Application Startup Phase</text>
+  
+  <!-- Program.cs Step -->
+  <rect x="100" y="120" width="180" height="100" fill="#bbdefb" rx="5" ry="5" stroke="#1976d2" stroke-width="1" />
+  <text x="190" y="140" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">Program.cs</text>
+  <text x="190" y="165" font-family="Arial" font-size="12" text-anchor="middle">
+    <tspan x="190" dy="0">builder.Services.AddScoped</tspan>
+    <tspan x="190" dy="18">builder.Services.AddSingleton</tspan>
+    <tspan x="190" dy="18">builder.Services.AddTransient</tspan>
+  </text>
+  
+  <!-- DI Container Step -->
+  <rect x="480" y="120" width="180" height="100" fill="#bbdefb" rx="5" ry="5" stroke="#1976d2" stroke-width="1" />
+  <text x="570" y="140" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">DI Container Built</text>
+  <text x="570" y="165" font-family="Arial" font-size="12" text-anchor="middle">
+    <tspan x="570" dy="0">Services are registered</tspan>
+    <tspan x="570" dy="18">and ready to be</tspan>
+    <tspan x="570" dy="18">resolved when needed</tspan>
+  </text>
+  
+  <!-- Arrow from Program to DI Container -->
+  <path d="M280 170 H390 L480 170" fill="none" stroke="#1976d2" stroke-width="2" marker-end="url(#arrow)" />
+  
+  <!-- Request Phase -->
+  <rect x="50" y="270" width="700" height="300" fill="#e8f5e9" rx="10" ry="10" stroke="#4caf50" stroke-width="2" />
+  <text x="400" y="290" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold" fill="#1b5e20">API Request Phase</text>
+  
+  <!-- Client Request -->
+  <rect x="100" y="320" width="120" height="60" fill="#c8e6c9" rx="5" ry="5" stroke="#388e3c" stroke-width="1" />
+  <text x="160" y="340" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Client</text>
+  <text x="160" y="360" font-family="Arial" font-size="12" text-anchor="middle">GET /api/orders</text>
+  
+  <!-- Middleware -->
+  <rect x="100" y="410" width="120" height="60" fill="#c8e6c9" rx="5" ry="5" stroke="#388e3c" stroke-width="1" />
+  <text x="160" y="430" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Middleware</text>
+  <text x="160" y="450" font-family="Arial" font-size="12" text-anchor="middle">Auth, Logging</text>
+  
+  <!-- Controller -->
+  <rect x="100" y="500" width="120" height="60" fill="#c8e6c9" rx="5" ry="5" stroke="#388e3c" stroke-width="1" />
+  <text x="160" y="520" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Controller</text>
+  <text x="160" y="540" font-family="Arial" font-size="12" text-anchor="middle">OrderController</text>
+  
+  <!-- Arrows for request flow -->
+  <path d="M160 380 V410" fill="none" stroke="#388e3c" stroke-width="2" marker-end="url(#arrow)" />
+  <path d="M160 470 V500" fill="none" stroke="#388e3c" stroke-width="2" marker-end="url(#arrow)" />
+  
+  <!-- DI Container in action -->
+  <rect x="300" y="380" width="400" height="140" fill="#dcedc8" rx="5" ry="5" stroke="#689f38" stroke-width="1" />
+  <text x="500" y="400" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">DI Container Resolves Dependencies</text>
+  
+  <!-- Services -->
+  <rect x="330" y="420" width="100" height="80" fill="#f1f8e9" rx="5" ry="5" stroke="#7cb342" stroke-width="1" />
+  <text x="380" y="440" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Services</text>
+  <text x="380" y="460" font-family="Arial" font-size="11" text-anchor="middle">
+    <tspan x="380" dy="0">IOrderService</tspan>
+    <tspan x="380" dy="15">(Scoped)</tspan>
+  </text>
+  
+  <rect x="450" y="420" width="100" height="80" fill="#f1f8e9" rx="5" ry="5" stroke="#7cb342" stroke-width="1" />
+  <text x="500" y="440" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Services</text>
+  <text x="500" y="460" font-family="Arial" font-size="11" text-anchor="middle">
+    <tspan x="500" dy="0">ILogger</tspan>
+    <tspan x="500" dy="15">(Singleton)</tspan>
+  </text>
+  
+  <rect x="570" y="420" width="100" height="80" fill="#f1f8e9" rx="5" ry="5" stroke="#7cb342" stroke-width="1" />
+  <text x="620" y="440" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Services</text>
+  <text x="620" y="460" font-family="Arial" font-size="11" text-anchor="middle">
+    <tspan x="620" dy="0">IEmailSender</tspan>
+    <tspan x="620" dy="15">(Transient)</tspan>
+  </text>
+  
+  <!-- Arrow from Controller to DI Container -->
+  <path d="M220 530 H270 C290 530 290 450 300 450" fill="none" stroke="#388e3c" stroke-width="2" marker-end="url(#arrow)" />
+  
+  <!-- Arrow from DI Container to Controller -->
+  <path d="M300 470 C290 470 290 550 270 550 H220" fill="none" stroke="#388e3c" stroke-width="2" marker-end="url(#arrow)" />
+  
+  <!-- Service Lifetimes Legend -->
+  <rect x="550" y="320" width="150" height="50" fill="white" rx="5" ry="5" stroke="#333" stroke-width="1" />
+  <text x="625" y="335" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold">Service Lifetimes</text>
+  <text x="625" y="355" font-family="Arial" font-size="10" text-anchor="middle">During a single request</text>
+  
+  <!-- Arrow Marker Definition -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333" />
+    </marker>
+  </defs>
+</svg>
